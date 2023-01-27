@@ -7,7 +7,7 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            backgroundColor: const Color.fromARGB(255, 6, 33, 66),
+            backgroundColor: AppColor.darkBlueColor,
             body: Stack(
               children: [
                 Container(
@@ -45,7 +45,7 @@ class DetailPage extends StatelessWidget {
                     ),
                     SliverFillRemaining(
                       child: Container(
-                        color: Colors.white,
+                        color: AppColor.whiteColor,
                         padding: const EdgeInsets.only(left: 40, right: 40),
                         child: Column(
                           children: [
@@ -60,7 +60,7 @@ class DetailPage extends StatelessWidget {
                                     "Bromo Mountain National Park",
                                     style: GoogleFonts.poppins(
                                         textStyle: const TextStyle(
-                                            color: Colors.black,
+                                            color: AppColor.darkBlueColor,
                                             fontWeight: FontWeight.w600,
                                             fontSize: 16.0)),
                                   ),
@@ -72,13 +72,74 @@ class DetailPage extends StatelessWidget {
                                     textAlign: TextAlign.right,
                                     style: GoogleFonts.poppins(
                                         textStyle: const TextStyle(
-                                            color: Colors.black,
+                                            color: AppColor.darkBlueColor,
                                             fontWeight: FontWeight.w600,
                                             fontSize: 40.0)),
                                   ),
                                 ),
                               ],
                             ),
+                            const SizedBox(
+                              height: 30,
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                  flex: 1,
+                                  child: InkWell(
+                                    onTap: () {},
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Container(
+                                      decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(20.0),
+                                        ),
+                                        color: AppColor.yellowColor,
+                                      ),
+                                      padding: const EdgeInsets.all(15.0),
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/images/navigate-icon.svg',
+                                                semanticsLabel: 'Acme Logo'),
+                                            const SizedBox(
+                                              width: 20,
+                                            ),
+                                            Text(
+                                              "View map",
+                                              style: GoogleFonts.poppins(
+                                                textStyle: const TextStyle(
+                                                    color:
+                                                        AppColor.darkBlueColor,
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 13.0),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    "Malang, East Java, Indonesia",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: const TextStyle(
+                                          color: AppColor.darkGreyColor,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 12.0),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )
                           ],
                         ),
                       ),
