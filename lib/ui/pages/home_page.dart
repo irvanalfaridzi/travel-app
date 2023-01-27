@@ -29,6 +29,7 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // TODO: make a logic to change the page with setstate
             NavBarButtonItem(
               iconButton: Icons.home_rounded,
               textButton: "Home",
@@ -133,6 +134,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 4),
+              // TODO: create dummy data for popular tips
               SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: 220,
@@ -142,47 +144,28 @@ class HomePage extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     padding:
                         const EdgeInsets.only(left: 40, top: 13, bottom: 13),
-                    itemBuilder: (context, index) => Padding(
-                      padding: const EdgeInsets.only(right: 20),
-                      child: InkWell(
-                        onTap: () {
-                          // TODO: add navigation to detail vacation item
-                        },
-                        child: Container(
-                          width: 145,
-                          height: 194,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: AppColor.whiteColor,
-                            boxShadow: const [
-                              BoxShadow(
-                                blurRadius: 10,
-                                spreadRadius: 0,
-                                color: AppColor.shadowColor,
-                                offset: Offset(0, 1),
-                              )
-                            ],
-                          ),
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 119,
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10),
-                                    topRight: Radius.circular(10),
-                                  ),
-                                  color: AppColor.darkBlueColor,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
+                    itemBuilder: (context, index) => const PopularCard(),
                   ),
                 ),
-              )
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(left: 40.0, bottom: 20),
+                child: Text(
+                  "Wishlist",
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: AppColor.blackColor,
+                  ),
+                ),
+              ),
+              // TODO: create dummy data for wishlist
+              ...List.generate(
+                2,
+                (index) => const WishlistItem(),
+              ),
+              const SizedBox(height: 50),
             ],
           ),
         ),
