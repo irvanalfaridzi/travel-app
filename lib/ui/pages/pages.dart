@@ -4,3 +4,4 @@ import 'package:travel_app/ui/widgets/widgets.dart';
 import 'package:travel_app/util/color.dart';
 
 part 'home_page.dart';
+part 'detail_page.dart';
