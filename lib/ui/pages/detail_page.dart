@@ -45,7 +45,13 @@ class DetailPage extends StatelessWidget {
                     ),
                     SliverFillRemaining(
                       child: Container(
-                        color: AppColor.whiteColor,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(40),
+                            bottomRight: Radius.circular(40),
+                          ),
+                          color: AppColor.whiteColor,
+                        ),
                         padding: const EdgeInsets.only(left: 40, right: 40),
                         child: Column(
                           children: [
@@ -102,8 +108,9 @@ class DetailPage extends StatelessWidget {
                                         child: Row(
                                           children: [
                                             SvgPicture.asset(
-                                                'assets/images/navigate-icon.svg',
-                                                semanticsLabel: 'Acme Logo'),
+                                                'assets/icons/navigate-icon.svg',
+                                                semanticsLabel:
+                                                    'Navigate icon'),
                                             const SizedBox(
                                               width: 20,
                                             ),
@@ -139,6 +146,129 @@ class DetailPage extends StatelessWidget {
                                   ),
                                 ),
                               ],
+                            ),
+                            const SizedBox(
+                              height: 50,
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: AppColor.whiteColor,
+                                      borderRadius: const BorderRadius.all(
+                                          Radius.circular(10.0)),
+                                      border: Border.all(
+                                          color: AppColor.shadowColor),
+                                    ),
+                                    padding: const EdgeInsets.all(15.0),
+                                    child: Column(
+                                      children: [
+                                        SvgPicture.asset(
+                                          "assets/icons/peoples-icon.svg",
+                                          semanticsLabel: "Peoples icon",
+                                        ),
+                                        const SizedBox(
+                                          height: 15,
+                                        ),
+                                        Text(
+                                          "10 peoples",
+                                          style: GoogleFonts.poppins(
+                                            textStyle: const TextStyle(
+                                                color: AppColor.blackColor,
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 11.0),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: AppColor.whiteColor,
+                                      borderRadius: const BorderRadius.all(
+                                          Radius.circular(10.0)),
+                                      border: Border.all(
+                                          color: AppColor.shadowColor),
+                                    ),
+                                    padding: const EdgeInsets.all(15.0),
+                                    child: Column(
+                                      children: [
+                                        SvgPicture.asset(
+                                          "assets/icons/time-icon.svg",
+                                          semanticsLabel: "Time icon",
+                                        ),
+                                        const SizedBox(
+                                          height: 15,
+                                        ),
+                                        Text(
+                                          "2 days",
+                                          style: GoogleFonts.poppins(
+                                            textStyle: const TextStyle(
+                                                color: AppColor.blackColor,
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 11.0),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: AppColor.whiteColor,
+                                      borderRadius: const BorderRadius.all(
+                                          Radius.circular(10.0)),
+                                      border: Border.all(
+                                          color: AppColor.shadowColor),
+                                    ),
+                                    padding: const EdgeInsets.all(15.0),
+                                    child: Column(
+                                      children: [
+                                        SvgPicture.asset(
+                                          "assets/icons/star-icon.svg",
+                                          semanticsLabel: "Star icon",
+                                        ),
+                                        const SizedBox(
+                                          height: 15,
+                                        ),
+                                        Text(
+                                          "4,8",
+                                          style: GoogleFonts.poppins(
+                                            textStyle: const TextStyle(
+                                                color: AppColor.blackColor,
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 11.0),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 40,
+                            ),
+                            Expanded(
+                              child: Text(
+                                "Mount Bromo is a part of the Bromo Tengger Semeru National Park that covers a massive area of 800 square km. While it may be small when measured against other volcanoes in Indonesia, the magnificent Mt Bromo will not disappoint with its spectacular views and dramatic landscapes.",
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                      color: AppColor.darkGreyColor,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 13.0),
+                                ),
+                              ),
                             )
                           ],
                         ),
@@ -148,9 +278,29 @@ class DetailPage extends StatelessWidget {
                 )
               ],
             ),
-            bottomNavigationBar: const SizedBox(
-              height: 58,
-              child: Text("Book Trip"),
+            bottomNavigationBar: SizedBox(
+              height: 80,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    "assets/icons/checkmark-circle-icon.svg",
+                    semanticsLabel: "Check icon",
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    "Book Trip",
+                    style: GoogleFonts.poppins(
+                      textStyle: const TextStyle(
+                          color: AppColor.whiteColor,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20.0),
+                    ),
+                  ),
+                ],
+              ),
             )));
   }
 }
