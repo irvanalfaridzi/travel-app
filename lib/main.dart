@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/utils/app_router.dart';
+import 'package:travel_app/ui/pages/pages.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,14 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Food App',
-      theme: ThemeData.light().copyWith(
-        colorScheme: const ColorScheme.light().copyWith(
-          primary: Colors.white
-        )
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
-      initialRoute: AppRoutes.detailPage,
-      onGenerateRoute: AppRouter.generateRoute,
+      home: const DetailPage(),
     );
   }
 }
