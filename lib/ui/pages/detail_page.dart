@@ -24,22 +24,14 @@ class DetailPage extends StatelessWidget {
                   anchor: 0.2,
                   slivers: [
                     SliverToBoxAdapter(
-                      child: SizedBox(
+                      child: Container(
                         height: 40,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            Container(
-                              height: 40,
-                              decoration: const BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(40.0),
-                                  topRight: Radius.circular(40.0),
-                                ),
-                              ),
-                            ),
-                          ],
+                        decoration: const BoxDecoration(
+                          color: AppColor.whiteColor,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(40.0),
+                            topRight: Radius.circular(40.0),
+                          ),
                         ),
                       ),
                     ),
