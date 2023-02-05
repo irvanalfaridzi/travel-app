@@ -134,17 +134,18 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 4),
-              // TODO: create dummy data for popular tips
               SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: 220,
                 child: Center(
                   child: ListView.builder(
-                    itemCount: 5,
+                    itemCount: dummyVacation.length,
                     scrollDirection: Axis.horizontal,
                     padding:
                         const EdgeInsets.only(left: 40, top: 13, bottom: 13),
-                    itemBuilder: (context, index) => const PopularCard(),
+                    itemBuilder: (context, index) => PopularCard(
+                      vacation: dummyVacation[index],
+                    ),
                   ),
                 ),
               ),

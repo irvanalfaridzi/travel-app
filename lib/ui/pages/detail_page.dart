@@ -1,7 +1,8 @@
 part of 'pages.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({Key? key}) : super(key: key);
+  final Vacation vacation;
+  const DetailPage({Key? key, required this.vacation}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,15 +11,19 @@ class DetailPage extends StatelessWidget {
             backgroundColor: AppColor.darkBlueColor,
             body: Stack(
               children: [
-                Container(
-                  height: 200,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: NetworkImage(
-                            "https://images.unsplash.com/flagged/photo-1557804521-990f076ccb96?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
-                          ),
-                          fit: BoxFit.cover)),
+                // animation for the vacation image
+                Hero(
+                  tag: vacation.vacationName,
+                  child: Container(
+                    height: 200,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                              vacation.urlImage,
+                            ),
+                            fit: BoxFit.cover)),
+                  ),
                 ),
                 CustomScrollView(
                   anchor: 0.2,
@@ -55,7 +60,7 @@ class DetailPage extends StatelessWidget {
                                 Expanded(
                                   flex: 1,
                                   child: Text(
-                                    "Bromo Mountain National Park",
+                                    vacation.vacationName,
                                     style: GoogleFonts.poppins(
                                         textStyle: const TextStyle(
                                             color: AppColor.darkBlueColor,
@@ -128,7 +133,7 @@ class DetailPage extends StatelessWidget {
                                 Expanded(
                                   flex: 1,
                                   child: Text(
-                                    "Malang, East Java, Indonesia",
+                                    vacation.location,
                                     style: GoogleFonts.poppins(
                                       textStyle: const TextStyle(
                                           color: AppColor.darkGreyColor,

@@ -1,7 +1,8 @@
 part of 'widgets.dart';
 
 class PopularCard extends StatelessWidget {
-  const PopularCard({super.key});
+  final Vacation vacation;
+  const PopularCard({super.key, required this.vacation});
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +10,12 @@ class PopularCard extends StatelessWidget {
       padding: const EdgeInsets.only(right: 20),
       child: InkWell(
         onTap: () {
-          // TODO: add navigation to detail vacation item
+          // navigate to detail page
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetailPage(vacation: vacation),
+              ));
         },
         child: Container(
           width: 145,
@@ -29,16 +35,20 @@ class PopularCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height: 119,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10),
-                  ),
-                  image: DecorationImage(
-                    image: AssetImage(
-                      "assets/images/vacation-1.png",
+              // animation for the vacation image
+              Hero(
+                tag: vacation.vacationName,
+                child: Container(
+                  height: 119,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10),
+                    ),
+                    image: DecorationImage(
+                      image: AssetImage(
+                        vacation.urlImage,
+                      ),
                     ),
                   ),
                 ),
@@ -51,7 +61,7 @@ class PopularCard extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(right: 8.0),
                         child: Text(
-                          "Ijen Lake",
+                          vacation.vacationName,
                           style: GoogleFonts.poppins(
                             fontSize: 10,
                             fontWeight: FontWeight.w600,
@@ -74,7 +84,7 @@ class PopularCard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 4, left: 10),
                 child: Text(
-                  "Banyuwangi,\nJawa Timur",
+                  vacation.location,
                   style: GoogleFonts.poppins(
                     fontSize: 8,
                     fontWeight: FontWeight.w400,
