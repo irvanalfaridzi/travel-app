@@ -143,9 +143,23 @@ class HomePage extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     padding:
                         const EdgeInsets.only(left: 40, top: 13, bottom: 13),
-                    itemBuilder: (context, index) => PopularCard(
-                      vacation: dummyVacation[index],
-                    ),
+                    itemBuilder: (context, index) {
+                      final vacation = dummyVacation[index];
+                      return PopularCard(
+                        vacation: vacation,
+                        onTap: () {
+                          // navigate to detail page
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailPage(
+                                vacation: vacation,
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
                   ),
                 ),
               ),

@@ -7,3 +7,4 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 part 'home_page.dart';
 part 'detail_page.dart';
+part 'checkout_page.dart';

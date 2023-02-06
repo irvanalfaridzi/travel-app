@@ -2,21 +2,19 @@ part of 'widgets.dart';
 
 class PopularCard extends StatelessWidget {
   final Vacation vacation;
-  const PopularCard({super.key, required this.vacation});
+  final Function() onTap;
+  const PopularCard({
+    super.key,
+    required this.vacation,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 20),
       child: InkWell(
-        onTap: () {
-          // navigate to detail page
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => DetailPage(vacation: vacation),
-              ));
-        },
+        onTap: onTap,
         child: Container(
           width: 145,
           height: 194,
