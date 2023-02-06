@@ -16,31 +16,31 @@ List<Vacation> dummyVacation = [
   Vacation(
     vacationName: "Ijen Lake",
     urlImage: "assets/images/vacation-1.png",
-    location: "Banyuwangi,\nJawa Timur",
+    location: "Banyuwangi, Jawa Timur",
   ),
   Vacation(
     vacationName: "Mount Bromo",
     urlImage: "assets/images/vacation-2.png",
-    location: "Lumajang,\nJawa Timur",
+    location: "Lumajang, Jawa Timur",
   ),
   Vacation(
     vacationName: "Ijen Lake 2",
     urlImage: "assets/images/vacation-1.png",
-    location: "Banyuwangi,\nJawa Timur",
+    location: "Banyuwangi, Jawa Timur",
   ),
   Vacation(
     vacationName: "Mount Bromo 2",
     urlImage: "assets/images/vacation-2.png",
-    location: "Lumajang,\nJawa Timur",
+    location: "Lumajang, Jawa Timur",
   ),
   Vacation(
     vacationName: "Ijen Lake 3",
     urlImage: "assets/images/vacation-1.png",
-    location: "Banyuwangi,\nJawa Timur",
+    location: "Banyuwangi, Jawa Timur",
   ),
   Vacation(
     vacationName: "Mount Bromo 3",
     urlImage: "assets/images/vacation-2.png",
-    location: "Lumajang,\nJawa Timur",
+    location: "Lumajang, Jawa Timur",
   ),
 ];

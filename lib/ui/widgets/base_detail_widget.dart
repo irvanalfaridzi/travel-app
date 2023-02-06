@@ -7,12 +7,14 @@ class BaseDetailWidget extends StatelessWidget {
     required this.body,
     required this.onBottomNavBarTap,
     required this.onBottomNavBarText,
+    this.isCheckoutPage = false,
   });
 
   final Vacation vacation;
   final Widget body;
   final Function() onBottomNavBarTap;
   final String onBottomNavBarText;
+  final bool isCheckoutPage;
 
   @override
   Widget build(BuildContext context) {
@@ -43,11 +45,11 @@ class BaseDetailWidget extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: Container(
                     height: 40,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: AppColor.whiteColor,
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(40.0),
-                        topRight: Radius.circular(40.0),
+                        topLeft: Radius.circular(isCheckoutPage ? 0 : 40.0),
+                        topRight: Radius.circular(isCheckoutPage ? 0 : 40.0),
                       ),
                     ),
                   ),
