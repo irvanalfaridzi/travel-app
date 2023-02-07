@@ -112,7 +112,7 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Popular tips",
+                      "Popular trips",
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -138,27 +138,38 @@ class HomePage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 height: 220,
                 child: Center(
-                  child: ListView.builder(
-                    itemCount: dummyVacation.length,
-                    scrollDirection: Axis.horizontal,
-                    padding:
-                        const EdgeInsets.only(left: 40, top: 13, bottom: 13),
-                    itemBuilder: (context, index) {
-                      final vacation = dummyVacation[index];
-                      return PopularCard(
-                        vacation: vacation,
-                        onTap: () {
-                          // navigate to detail page
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => DetailPage(
-                                vacation: vacation,
-                              ),
-                            ),
-                          );
-                        },
-                      );
+                  child: FutureBuilder(
+                    future: ApiService.getTrips(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        final trips = snapshot.data;
+                        return ListView.builder(
+                          itemCount: trips?.length,
+                          scrollDirection: Axis.horizontal,
+                          padding: const EdgeInsets.only(
+                              left: 40, top: 13, bottom: 13),
+                          itemBuilder: (context, index) {
+                            final trip = trips![index];
+                            return PopularCard(
+                              trip: trip,
+                              onTap: () {
+                                // navigate to detail page
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailPage(
+                                      trip: trip,
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                        );
+                      }
+
+                      // loading while requesting the API
+                      return Skeleton.tripsSkeleton();
                     },
                   ),
                 ),

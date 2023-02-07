@@ -1,11 +1,11 @@
 part of 'widgets.dart';
 
 class PopularCard extends StatelessWidget {
-  final Vacation vacation;
+  final Trips trip;
   final Function() onTap;
   const PopularCard({
     super.key,
-    required this.vacation,
+    required this.trip,
     required this.onTap,
   });
 
@@ -35,7 +35,7 @@ class PopularCard extends StatelessWidget {
             children: [
               // animation for the vacation image
               Hero(
-                tag: vacation.vacationName,
+                tag: trip.destinationName,
                 child: Container(
                   height: 119,
                   decoration: BoxDecoration(
@@ -44,9 +44,10 @@ class PopularCard extends StatelessWidget {
                       topRight: Radius.circular(10),
                     ),
                     image: DecorationImage(
-                      image: AssetImage(
-                        vacation.urlImage,
+                      image: NetworkImage(
+                        trip.photoCover,
                       ),
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
@@ -59,7 +60,7 @@ class PopularCard extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(right: 8.0),
                         child: Text(
-                          vacation.vacationName,
+                          trip.destinationName,
                           style: GoogleFonts.poppins(
                             fontSize: 10,
                             fontWeight: FontWeight.w600,
@@ -82,7 +83,7 @@ class PopularCard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 4, left: 10),
                 child: Text(
-                  vacation.location,
+                  trip.location,
                   style: GoogleFonts.poppins(
                     fontSize: 8,
                     fontWeight: FontWeight.w400,

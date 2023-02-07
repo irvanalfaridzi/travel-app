@@ -3,14 +3,14 @@ part of 'widgets.dart';
 class BaseDetailWidget extends StatelessWidget {
   const BaseDetailWidget({
     super.key,
-    required this.vacation,
+    required this.trip,
     required this.body,
     required this.onBottomNavBarTap,
     required this.onBottomNavBarText,
     this.isCheckoutPage = false,
   });
 
-  final Vacation vacation;
+  final Trips trip;
   final Widget body;
   final Function() onBottomNavBarTap;
   final String onBottomNavBarText;
@@ -25,14 +25,14 @@ class BaseDetailWidget extends StatelessWidget {
           children: [
             // animation for the vacation image
             Hero(
-              tag: vacation.vacationName,
+              tag: trip.destinationName,
               child: Container(
                 height: 200,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(
-                      vacation.urlImage,
+                    image: NetworkImage(
+                      trip.photoCover,
                     ),
                     fit: BoxFit.cover,
                   ),

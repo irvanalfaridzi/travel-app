@@ -1,20 +1,20 @@
 part of 'pages.dart';
 
 class DetailPage extends StatelessWidget {
-  final Vacation vacation;
-  const DetailPage({Key? key, required this.vacation}) : super(key: key);
+  final Trips trip;
+  const DetailPage({Key? key, required this.trip}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BaseDetailWidget(
-      vacation: vacation,
-      body: DetailBodyWidget(vacation: vacation),
+      trip: trip,
+      body: DetailBodyWidget(trip: trip),
       onBottomNavBarTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => CheckoutPage(
-              vacation: vacation,
+              trip: trip,
             ),
           ),
         );
@@ -27,10 +27,10 @@ class DetailPage extends StatelessWidget {
 class DetailBodyWidget extends StatelessWidget {
   const DetailBodyWidget({
     super.key,
-    required this.vacation,
+    required this.trip,
   });
 
-  final Vacation vacation;
+  final Trips trip;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class DetailBodyWidget extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Text(
-                vacation.vacationName,
+                trip.destinationName,
                 style: GoogleFonts.poppins(
                     textStyle: const TextStyle(
                         color: AppColor.darkBlueColor,
@@ -55,7 +55,7 @@ class DetailBodyWidget extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Text(
-                "\$100",
+                "\$${trip.price}",
                 textAlign: TextAlign.right,
                 style: GoogleFonts.poppins(
                     textStyle: const TextStyle(
@@ -114,7 +114,7 @@ class DetailBodyWidget extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Text(
-                vacation.location,
+                trip.location,
                 style: GoogleFonts.poppins(
                   textStyle: const TextStyle(
                       color: AppColor.darkGreyColor,
@@ -148,7 +148,7 @@ class DetailBodyWidget extends StatelessWidget {
                       height: 15,
                     ),
                     Text(
-                      "10 peoples",
+                      "${trip.minimumPerson} ${trip.person}",
                       style: GoogleFonts.poppins(
                         textStyle: const TextStyle(
                             color: AppColor.blackColor,
@@ -214,7 +214,7 @@ class DetailBodyWidget extends StatelessWidget {
                       height: 15,
                     ),
                     Text(
-                      "4,8",
+                      trip.rating.toString(),
                       style: GoogleFonts.poppins(
                         textStyle: const TextStyle(
                             color: AppColor.blackColor,

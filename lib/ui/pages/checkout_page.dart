@@ -3,43 +3,26 @@ part of 'pages.dart';
 class CheckoutPage extends StatefulWidget {
   const CheckoutPage({
     super.key,
-    required this.vacation,
+    required this.trip,
   });
 
-  final Vacation vacation;
+  final Trips trip;
 
   @override
   State<CheckoutPage> createState() => _CheckoutPageState();
 }
 
 class _CheckoutPageState extends State<CheckoutPage> {
-  void loadingWidget() {
-    showDialog(
-      context: context,
-      builder: (context) => Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        color: AppColor.darkBlueColor.withOpacity(0.5),
-        child: const Center(
-          child: CircularProgressIndicator(
-            color: AppColor.whiteColor,
-          ),
-        ),
-      ),
-    );
-  }
-
   final snackBar = const SnackBar(
     content: Text('Order succeed'),
   );
-
   @override
   Widget build(BuildContext context) {
     return BaseDetailWidget(
-      vacation: widget.vacation,
+      trip: widget.trip,
       onBottomNavBarTap: () async {
         print("Order");
-        loadingWidget();
+        LoadingWidget.loadingDialog(context);
 
         await Future.delayed(const Duration(milliseconds: 500))
             .whenComplete(() {
@@ -69,7 +52,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
               Expanded(
                 flex: 1,
                 child: Text(
-                  widget.vacation.vacationName,
+                  widget.trip.destinationName,
                   style: GoogleFonts.poppins(
                     textStyle: const TextStyle(
                       color: AppColor.darkBlueColor,
@@ -90,7 +73,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
           ),
           const SizedBox(height: 6),
           Text(
-            widget.vacation.location,
+            widget.trip.location,
             style: GoogleFonts.poppins(
               textStyle: const TextStyle(
                 color: AppColor.darkGreyColor,
@@ -111,7 +94,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
               // Prize
               _smalltemWidget(
                 label: "Price",
-                value: "\$100 / person",
+                value: "${widget.trip.minimumPerson} / person",
               )
             ],
           ),
