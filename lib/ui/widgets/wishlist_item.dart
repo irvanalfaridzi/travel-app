@@ -39,7 +39,6 @@ class WishlistItem extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        color: AppColor.blackColor,
                       ),
                     ),
                     const SizedBox(height: 2),
@@ -48,7 +47,7 @@ class WishlistItem extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 13,
                         fontWeight: FontWeight.w400,
-                        color: AppColor.darkGreyColor,
+                        color: Theme.of(context).colorScheme.secondary,
                       ),
                     ),
                   ],
@@ -58,7 +57,6 @@ class WishlistItem extends StatelessWidget {
                   style: GoogleFonts.poppins(
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
-                    color: AppColor.blackColor,
                   ),
                 ),
               ],
@@ -78,7 +76,6 @@ class WishlistItem extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 11,
                         fontWeight: FontWeight.w600,
-                        color: AppColor.blackColor,
                       ),
                     ),
                   ],
@@ -95,7 +92,6 @@ class WishlistItem extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 11,
                         fontWeight: FontWeight.w600,
-                        color: AppColor.blackColor,
                       ),
                     ),
                   ],
@@ -112,7 +108,6 @@ class WishlistItem extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 11,
                         fontWeight: FontWeight.w600,
-                        color: AppColor.blackColor,
                       ),
                     ),
                   ],

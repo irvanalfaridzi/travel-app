@@ -20,7 +20,7 @@ class BaseDetailWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColor.darkBlueColor,
+        backgroundColor: Theme.of(context).colorScheme.tertiaryContainer,
         body: Stack(
           children: [
             // animation for the vacation image
@@ -46,7 +46,7 @@ class BaseDetailWidget extends StatelessWidget {
                   child: Container(
                     height: 40,
                     decoration: BoxDecoration(
-                      color: AppColor.whiteColor,
+                      color: Theme.of(context).colorScheme.background,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(isCheckoutPage ? 0 : 40.0),
                         topRight: Radius.circular(isCheckoutPage ? 0 : 40.0),
@@ -56,12 +56,12 @@ class BaseDetailWidget extends StatelessWidget {
                 ),
                 SliverFillRemaining(
                   child: Container(
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(40),
                         bottomRight: Radius.circular(40),
                       ),
-                      color: AppColor.whiteColor,
+                      color: Theme.of(context).colorScheme.background,
                     ),
                     padding: const EdgeInsets.only(left: 40, right: 40),
                     child: body,
@@ -81,6 +81,7 @@ class BaseDetailWidget extends StatelessWidget {
                 SvgPicture.asset(
                   "assets/icons/checkmark-circle-icon.svg",
                   semanticsLabel: "Check icon",
+                  color: Theme.of(context).colorScheme.onBackground,
                 ),
                 const SizedBox(
                   width: 10,
@@ -89,7 +90,6 @@ class BaseDetailWidget extends StatelessWidget {
                   onBottomNavBarText,
                   style: GoogleFonts.poppins(
                     textStyle: const TextStyle(
-                      color: AppColor.whiteColor,
                       fontWeight: FontWeight.w500,
                       fontSize: 20.0,
                     ),

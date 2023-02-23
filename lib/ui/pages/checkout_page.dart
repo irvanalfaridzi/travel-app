@@ -55,7 +55,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   widget.trip.destinationName,
                   style: GoogleFonts.poppins(
                     textStyle: const TextStyle(
-                      color: AppColor.darkBlueColor,
                       fontWeight: FontWeight.w600,
                       fontSize: 20.0,
                     ),
@@ -67,6 +66,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 child: SvgPicture.asset(
                   "assets/icons/mountain.svg",
                   semanticsLabel: "Mountain icon",
+                  color: Theme.of(context).colorScheme.onBackground,
                 ),
               ),
             ],
@@ -76,7 +76,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
             widget.trip.location,
             style: GoogleFonts.poppins(
               textStyle: const TextStyle(
-                color: AppColor.darkGreyColor,
                 fontWeight: FontWeight.w500,
                 fontSize: 12.0,
               ),
@@ -145,8 +144,11 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     Text(
                       "Master Card",
                       style: GoogleFonts.poppins(
-                        textStyle: const TextStyle(
-                          color: AppColor.blackColor,
+                        textStyle: TextStyle(
+                          color: Theme.of(context)
+                              .buttonTheme
+                              .colorScheme
+                              ?.onPrimary,
                           fontWeight: FontWeight.w400,
                           fontSize: 10.0,
                         ),
@@ -163,7 +165,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
             "Total (include tax)",
             style: GoogleFonts.poppins(
               textStyle: const TextStyle(
-                color: AppColor.blackColor,
                 fontWeight: FontWeight.w400,
                 fontSize: 13.0,
               ),
@@ -171,10 +172,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
           ),
           const SizedBox(height: 8),
           Text(
-            "\$2200",
+            "\$${widget.trip.price}",
             style: GoogleFonts.poppins(
               textStyle: const TextStyle(
-                color: AppColor.blackColor,
                 fontWeight: FontWeight.w600,
                 fontSize: 40.0,
               ),
@@ -189,6 +189,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
     required Function() onRemove,
     required Function() onAdd,
   }) {
+    final color = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Row(
@@ -200,8 +201,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
             child: Text(
               "-",
               style: GoogleFonts.poppins(
-                textStyle: const TextStyle(
-                  color: AppColor.blackColor,
+                textStyle: TextStyle(
+                  color: color.buttonTheme.colorScheme?.onPrimary,
                   fontWeight: FontWeight.w600,
                   fontSize: 15.0,
                 ),
@@ -211,8 +212,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
           Text(
             "20",
             style: GoogleFonts.poppins(
-              textStyle: const TextStyle(
-                color: AppColor.blackColor,
+              textStyle: TextStyle(
+                color: color.buttonTheme.colorScheme?.onPrimary,
                 fontWeight: FontWeight.w400,
                 fontSize: 10.0,
               ),
@@ -223,8 +224,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
             child: Text(
               "+",
               style: GoogleFonts.poppins(
-                textStyle: const TextStyle(
-                  color: AppColor.blackColor,
+                textStyle: TextStyle(
+                  color: color.buttonTheme.colorScheme?.onPrimary,
                   fontWeight: FontWeight.w600,
                   fontSize: 15.0,
                 ),
@@ -240,14 +241,18 @@ class _CheckoutPageState extends State<CheckoutPage> {
     required Widget child,
     Function()? onTap,
   }) {
+    final color = Theme.of(context);
     return TextButton(
       onPressed: onTap,
       style: ButtonStyle(
         padding: MaterialStateProperty.all(const EdgeInsets.all(0)),
-        shadowColor: MaterialStateProperty.all(AppColor.shadowColor),
+        shadowColor:
+            MaterialStateProperty.all(color.buttonTheme.colorScheme?.shadow),
         elevation: MaterialStateProperty.all(3),
-        backgroundColor: MaterialStateProperty.all(AppColor.whiteColor),
-        overlayColor: MaterialStateProperty.all(AppColor.shadowColor),
+        backgroundColor: MaterialStateProperty.all(
+            color.buttonTheme.colorScheme?.background),
+        overlayColor:
+            MaterialStateProperty.all(color.buttonTheme.colorScheme?.shadow),
       ),
       child: child,
     );
@@ -255,6 +260,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
 
   Padding _buttonChild(
       {Widget? leftItem, String urlAsset = "assets/icons/calender.svg"}) {
+    final color = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
       child: Row(
@@ -265,8 +271,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 Text(
                   "Jan 2, 2023",
                   style: GoogleFonts.poppins(
-                    textStyle: const TextStyle(
-                      color: AppColor.blackColor,
+                    textStyle: TextStyle(
+                      color: color.buttonTheme.colorScheme?.onPrimary,
                       fontWeight: FontWeight.w400,
                       fontSize: 10.0,
                     ),
@@ -276,6 +282,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
           SvgPicture.asset(
             urlAsset,
             semanticsLabel: "Calender icon",
+            color: color.buttonTheme.colorScheme?.onPrimary,
           ),
         ],
       ),
@@ -293,7 +300,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
             value,
             style: GoogleFonts.poppins(
               textStyle: const TextStyle(
-                color: AppColor.darkGreyColor,
                 fontWeight: FontWeight.w500,
                 fontSize: 12.0,
               ),
@@ -307,7 +313,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
           label,
           style: GoogleFonts.poppins(
             textStyle: const TextStyle(
-              color: AppColor.blackColor,
               fontWeight: FontWeight.w400,
               fontSize: 13.0,
             ),

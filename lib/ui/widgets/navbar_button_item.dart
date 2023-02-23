@@ -15,8 +15,6 @@ class NavBarButtonItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final buttonColor =
-        isSelected ? AppColor.darkBlueColor : AppColor.greyColor;
     return TextButton(
       onPressed: () {
         onTap();
@@ -26,13 +24,12 @@ class NavBarButtonItem extends StatelessWidget {
         children: [
           Icon(
             iconButton,
-            color: buttonColor,
+            color: Theme.of(context).colorScheme.tertiary,
           ),
           const SizedBox(height: 8),
           Text(
             textButton,
             style: GoogleFonts.poppins(
-              color: buttonColor,
               fontSize: 10,
               fontWeight: FontWeight.w400,
             ),
