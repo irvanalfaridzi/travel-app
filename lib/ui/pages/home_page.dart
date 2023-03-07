@@ -142,6 +142,7 @@ class HomePage extends StatelessWidget {
   }
 
   Column _bodyHomePage(BuildContext context) {
+    final _tripProvider = Provider.of<TripProvider>(context, listen: true);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -176,8 +177,8 @@ class HomePage extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: 220,
           child: Center(
-            child: FutureBuilder(
-              future: ApiService.getTrips(),
+            child: FutureBuilder<List<Trips>?>(
+              future: _tripProvider.getListTrip(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   final trips = snapshot.data;
@@ -199,7 +200,6 @@ class HomePage extends StatelessWidget {
                   );
                 }
 
-                // loading while requesting the API
                 return Skeleton.tripsSkeleton();
               },
             ),
