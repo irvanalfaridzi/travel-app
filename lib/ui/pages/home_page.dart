@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
               pinned: true,
               stretch: true,
               onStretchTrigger: () async {
-                print('Load new data!');
+                log("Load new data!");
                 // await Server.requestNewData();
               },
               expandedHeight: 247.0,
@@ -142,7 +142,7 @@ class HomePage extends StatelessWidget {
   }
 
   Column _bodyHomePage(BuildContext context) {
-    final _tripProvider = Provider.of<TripProvider>(context, listen: true);
+    final tripProvider = Provider.of<TripProvider>(context, listen: true);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -178,7 +178,7 @@ class HomePage extends StatelessWidget {
           height: 220,
           child: Center(
             child: FutureBuilder<List<Trips>?>(
-              future: _tripProvider.getListTrip(),
+              future: tripProvider.getListTrip(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   final trips = snapshot.data;

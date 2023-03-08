@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:travel_app/models/trips.dart';
 import 'package:travel_app/services/api_service.dart';
@@ -15,7 +17,7 @@ class TripProvider with ChangeNotifier {
         _listTrip = await ApiService.getTrips() ?? [];
       }
     } catch (e) {
-      print(e);
+      log(e.toString());
     }
     return listTrip;
   }

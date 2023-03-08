@@ -100,7 +100,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   label: "Choose Date",
                   field: _baseItemButton(
                     onTap: () {
-                      print("choose a date");
+                      log("choose a date");
                     },
                     child: _buttonChild(),
                   ),
@@ -112,9 +112,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   label: "Persons",
                   field: _baseItemButton(
                     child: _personChild(onAdd: () {
-                      print("Add");
+                      log("Add");
                     }, onRemove: () {
-                      print("Remove");
+                      log("Remove");
                     }),
                   ),
                 ),
@@ -126,7 +126,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
             label: "Paymenr Method",
             field: _baseItemButton(
               onTap: () {
-                print("choose a payment method");
+                log("choose a payment method");
               },
               child: _buttonChild(
                 leftItem: Row(
