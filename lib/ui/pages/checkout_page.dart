@@ -21,24 +21,18 @@ class _CheckoutPageState extends State<CheckoutPage> {
     return BaseDetailWidget(
       trip: widget.trip,
       onBottomNavBarTap: () async {
-        print("Order");
         LoadingWidget.loadingDialog(context);
 
         await Future.delayed(const Duration(milliseconds: 500))
             .whenComplete(() {
           // navigate back to home page
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const HomePage(),
-            ),
-            (Route<dynamic> route) => false,
-          );
+          context.go("/");
         });
 
-        await Future.delayed(const Duration(milliseconds: 100))
-            .whenComplete(() => // show the snackbar
-                ScaffoldMessenger.of(context).showSnackBar(snackBar));
+        await Future.delayed(const Duration(milliseconds: 100)).whenComplete(
+          () => // show the snackbar
+              AppRouter.scaffoldKey.currentState?.showSnackBar(snackBar),
+        );
       },
       onBottomNavBarText: "Order",
       isCheckoutPage: true,

@@ -10,14 +10,11 @@ class DetailPage extends StatelessWidget {
       trip: trip,
       body: DetailBodyWidget(trip: trip),
       onBottomNavBarTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => CheckoutPage(
-              trip: trip,
-            ),
-          ),
+        final uri = Uri(
+          path: '/checkout',
+          queryParameters: trip.toJson(),
         );
+        context.go(uri.toString());
       },
       onBottomNavBarText: "Book Trip",
     );

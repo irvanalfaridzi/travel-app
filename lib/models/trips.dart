@@ -38,26 +38,26 @@ class Trips {
   String get person => int.parse(minimumPerson) > 1 ? "persons" : "person";
 
   factory Trips.fromJson(Map<String, dynamic> json) => Trips(
-        id: json["id"],
+        id: int.parse(json["id"].toString()),
         destinationName: json["destination_name"],
         destinationCity: json["destination_city"],
         destinationRegion: json["destination_region"],
         destinationCountry: json["destination_country"],
         minimumPerson: json["minimum_person"],
-        price: json["price"],
-        rating: json["rating"]?.toDouble(),
+        price: int.parse(json["price"].toString()),
+        rating: double.parse(json["rating"].toString()),
         photoCover: json["photo_cover"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
+        "id": id.toString(),
         "destination_name": destinationName,
         "destination_city": destinationCity,
         "destination_region": destinationRegion,
         "destination_country": destinationCountry,
         "minimum_person": minimumPerson,
-        "price": price,
-        "rating": rating,
+        "price": price.toString(),
+        "rating": rating.toString(),
         "photo_cover": photoCover,
       };
 }

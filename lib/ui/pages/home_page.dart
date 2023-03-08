@@ -244,6 +244,10 @@ class _OpenPopularTripWrapper extends StatelessWidget {
       openBuilder: (context, closedContainer) {
         return DetailPage(trip: trip);
       },
+      routeSettings: RouteSettings(
+        name: '/detail',
+        arguments: trip.toJson(),
+      ),
       openColor: theme.cardColor,
       closedShape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(10)),
