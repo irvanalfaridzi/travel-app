@@ -14,30 +14,33 @@ class AppRouter {
         builder: (BuildContext context, GoRouterState state) {
           return const HomePage();
         },
-      ),
-      GoRoute(
-        path: '/detail',
-        builder: (BuildContext context, GoRouterState state) {
-          return DetailPage(
-            trip: Trips.fromJson(state.queryParams),
-          );
-        },
-      ),
-      GoRoute(
-        path: '/checkout',
-        builder: (BuildContext context, GoRouterState state) {
-          return CheckoutPage(
-            trip: Trips.fromJson(state.queryParams),
-          );
-        },
-      ),
-      GoRoute(
-        path: '/show-snackbar',
-        builder: (context, state) {
-          return const SnackBar(
-            content: Text('Order succeed'),
-          );
-        },
+        routes: <RouteBase>[
+          GoRoute(
+            path: 'detail',
+            builder: (BuildContext context, GoRouterState state) {
+              return DetailPage(
+                trip: Trips.fromJson(state.queryParams),
+              );
+            },
+          ),
+          GoRoute(
+            path: 'checkout',
+            builder: (BuildContext context, GoRouterState state) {
+              return CheckoutPage(
+                trip: Trips.fromJson(state.queryParams),
+              );
+            },
+          ),
+          // the snackbar
+          GoRoute(
+            path: 'show-snackbar',
+            builder: (context, state) {
+              return const SnackBar(
+                content: Text('Order succeed'),
+              );
+            },
+          ),
+        ],
       ),
     ],
   );

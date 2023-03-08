@@ -189,6 +189,7 @@ class HomePage extends StatelessWidget {
                         const EdgeInsets.only(left: 40, top: 13, bottom: 13),
                     itemBuilder: (context, index) {
                       final trip = trips![index];
+
                       return _OpenPopularTripWrapper(
                         trip: trip,
                         closedChild: PopularCard(
@@ -242,7 +243,7 @@ class _OpenPopularTripWrapper extends StatelessWidget {
     final theme = Theme.of(context);
     return OpenContainer(
       openBuilder: (context, closedContainer) {
-        return DetailPage(trip: trip);
+        return const SizedBox();
       },
       routeSettings: RouteSettings(
         name: '/detail',
@@ -257,7 +258,12 @@ class _OpenPopularTripWrapper extends StatelessWidget {
       closedBuilder: (context, openContainer) {
         return InkWell(
           onTap: () {
-            openContainer();
+            final uri = Uri(
+              path: '/detail',
+              queryParameters: trip.toJson(),
+            );
+            // navigate to detail page
+            context.go(uri.toString());
           },
           child: closedChild,
         );
