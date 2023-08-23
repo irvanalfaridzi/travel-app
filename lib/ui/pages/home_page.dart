@@ -181,14 +181,22 @@ class HomePage extends StatelessWidget {
               future: tripProvider.getListTrip(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  final trips = snapshot.data;
+                  final trips = snapshot.data ?? [];
+
+                  if (trips.isEmpty) {
+                    return const Center(
+                      child: Text(
+                        "Empty data",
+                      ),
+                    );
+                  }
                   return ListView.builder(
-                    itemCount: trips?.length,
+                    itemCount: trips.length,
                     scrollDirection: Axis.horizontal,
                     padding:
                         const EdgeInsets.only(left: 40, top: 13, bottom: 13),
                     itemBuilder: (context, index) {
-                      final trip = trips![index];
+                      final trip = trips[index];
 
                       return _OpenPopularTripWrapper(
                         trip: trip,
