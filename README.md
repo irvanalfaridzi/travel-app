@@ -1,6 +1,8 @@
-# travel_app
+# Travel App
 
-A new Flutter project.
+A Travel App developed with Flutter 💙 version 3. Focusing on UI designed by [@nashirjamali](https://www.nashirjamali.com/), a Travel App implemented Theme features with dark and light themes.
+
+<img width="1280" alt="Travel-App" src="https://github.com/irvanalfaridzi/travel-app/assets/44092368/42eb3661-2874-4bde-8b24-08cc490a252c">
 
 ## Getting Started
 
