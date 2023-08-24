@@ -183,26 +183,23 @@ class HomePage extends StatelessWidget {
                 if (snapshot.hasData) {
                   final trips = snapshot.data ?? [];
 
-                  if (trips.isEmpty) {
-                    return const Center(
-                      child: Text(
-                        "Empty data",
-                      ),
-                    );
-                  }
                   return ListView.builder(
-                    itemCount: trips.length,
+                    itemCount: trips.isEmpty ? mockTrips.length : trips.length,
                     scrollDirection: Axis.horizontal,
                     padding:
                         const EdgeInsets.only(left: 40, top: 13, bottom: 13),
                     itemBuilder: (context, index) {
-                      final trip = trips[index];
+                      final trip =
+                          trips.isEmpty ? mockTrips[index] : trips[index];
 
-                      return _OpenPopularTripWrapper(
-                        trip: trip,
-                        closedChild: PopularCard(
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 16.0),
+                        child: _OpenPopularTripWrapper(
                           trip: trip,
-                          onTap: () {},
+                          closedChild: PopularCard(
+                            trip: trip,
+                            onTap: () {},
+                          ),
                         ),
                       );
                     },

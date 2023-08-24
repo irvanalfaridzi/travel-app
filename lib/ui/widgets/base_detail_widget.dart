@@ -25,17 +25,24 @@ class BaseDetailWidget extends StatelessWidget {
           children: [
             // animation for the vacation image
             Hero(
-              tag: trip.destinationName,
+              tag: trip.id,
               child: Container(
                 height: 200,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(
-                      trip.photoCover,
-                    ),
-                    fit: BoxFit.cover,
-                  ),
+                  image: trip.photoCover.contains("assets")
+                      ? DecorationImage(
+                          image: AssetImage(
+                            trip.photoCover,
+                          ),
+                          fit: BoxFit.cover,
+                        )
+                      : DecorationImage(
+                          image: NetworkImage(
+                            trip.photoCover,
+                          ),
+                          fit: BoxFit.cover,
+                        ),
                 ),
               ),
             ),

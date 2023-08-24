@@ -31,7 +31,7 @@ class PopularCard extends StatelessWidget {
         children: [
           // animation for the vacation image
           Hero(
-            tag: trip.destinationName,
+            tag: trip.id,
             child: Container(
               height: 119,
               decoration: BoxDecoration(
@@ -39,12 +39,19 @@ class PopularCard extends StatelessWidget {
                   topLeft: Radius.circular(10),
                   topRight: Radius.circular(10),
                 ),
-                image: DecorationImage(
-                  image: NetworkImage(
-                    trip.photoCover,
-                  ),
-                  fit: BoxFit.cover,
-                ),
+                image: trip.photoCover.contains("assets")
+                    ? DecorationImage(
+                        image: AssetImage(
+                          trip.photoCover,
+                        ),
+                        fit: BoxFit.cover,
+                      )
+                    : DecorationImage(
+                        image: NetworkImage(
+                          trip.photoCover,
+                        ),
+                        fit: BoxFit.cover,
+                      ),
               ),
             ),
           ),
@@ -65,7 +72,7 @@ class PopularCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "\$200",
+                  "\$${trip.price}",
                   style: GoogleFonts.poppins(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,

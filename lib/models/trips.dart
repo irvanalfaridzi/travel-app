@@ -61,3 +61,50 @@ class Trips {
         "photo_cover": photoCover,
       };
 }
+
+List<Trips> mockTrips = [
+  Trips(
+    id: 0,
+    destinationName: "Kelingking Beach",
+    destinationCity: "Nusa Penida",
+    destinationRegion: "Bali",
+    destinationCountry: "Indonesia",
+    minimumPerson: "1",
+    price: 400,
+    rating: 3.5,
+    photoCover: "assets/images/vacation-3.png",
+  ),
+  Trips(
+    id: 1,
+    destinationName: "Kelingking Beach",
+    destinationCity: "Nusa Penida",
+    destinationRegion: "Bali",
+    destinationCountry: "Indonesia",
+    minimumPerson: "1",
+    price: 400,
+    rating: 3.5,
+    photoCover: "assets/images/vacation-3.png",
+  ),
+  Trips(
+    id: 2,
+    destinationName: "Kelingking Beach",
+    destinationCity: "Nusa Penida",
+    destinationRegion: "Bali",
+    destinationCountry: "Indonesia",
+    minimumPerson: "1",
+    price: 400,
+    rating: 3.5,
+    photoCover: "assets/images/vacation-3.png",
+  ),
+  Trips(
+    id: 3,
+    destinationName: "Kelingking Beach",
+    destinationCity: "Nusa Penida",
+    destinationRegion: "Bali",
+    destinationCountry: "Indonesia",
+    minimumPerson: "1",
+    price: 400,
+    rating: 3.5,
+    photoCover: "assets/images/vacation-3.png",
+  ),
+];
